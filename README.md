@@ -1,6 +1,8 @@
 # demo-go
 
-A collection of examples from https://go.dev/doc/tutorial/
+A collection of examples from:
+- https://gobyexample.com/
+- https://go.dev/doc/tutorial/
 
 ## Prerequisite
-- Go 1.18
+- Go 1.19
