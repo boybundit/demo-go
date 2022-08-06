@@ -1,1 +1,3 @@
 # demo-go
+
+A collection of examples from https://go.dev/doc/tutorial/
