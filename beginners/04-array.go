@@ -3,6 +3,14 @@ package main
 import "fmt"
 
 func main() {
+	array()
+	slice1()
+	slice2()
+	slice3()
+	slice4()
+}
+
+func array() {
 	grades := [...]int{97, 85, 93}
 	fmt.Printf("Grades: %v\n", grades)
 
@@ -28,4 +36,64 @@ func main() {
 	pointerToGrades[0] = 99
 	fmt.Println(grades)
 	fmt.Println(*pointerToGrades)
+}
+
+func slice1() {
+	a := []int{1, 2, 3}
+	// slice is copied by reference
+	b := a
+	b[0] = 5
+	fmt.Println(a)
+	fmt.Println(b)
+	fmt.Printf("Length: %v\n", len(a))
+	fmt.Printf("Capacity: %v\n", cap(a))
+}
+
+func slice2() {
+	a := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+	b := a[:]
+	c := a[3:]
+	d := a[:6]
+	e := a[3:6]
+	a[5] = 66
+	fmt.Println(a)
+	fmt.Println(b)
+	fmt.Println(c)
+	fmt.Println(d)
+	fmt.Println(e)
+	fmt.Printf("Length: %v\n", len(e))
+	fmt.Printf("Capacity: %v\n", cap(e))
+}
+
+func slice3() {
+	// more efficient if slice size can grow
+	a := make([]int, 3, 100)
+	fmt.Println(a)
+	fmt.Printf("Length: %v\n", len(a))
+	fmt.Printf("Capacity: %v\n", cap(a))
+	a = append(a, 1)
+	fmt.Println(a)
+	fmt.Printf("Length: %v\n", len(a))
+	fmt.Printf("Capacity: %v\n", cap(a))
+	a = append(a, 2, 3, 4, 5)
+	fmt.Println(a)
+	fmt.Printf("Length: %v\n", len(a))
+	fmt.Printf("Capacity: %v\n", cap(a))
+	a = append(a, []int{6, 7, 8}...)
+	fmt.Println(a)
+	fmt.Printf("Length: %v\n", len(a))
+	fmt.Printf("Capacity: %v\n", cap(a))
+}
+
+func slice4() {
+	a := []int{1, 2, 3, 4, 5}
+	b := a[1:]                   // remove the first item
+	c := a[:len(a)-1]            // remove the last item
+	d := append(a[:2], a[3:]...) // remove the 3rd item
+	fmt.Println(a)
+	fmt.Println(b)
+	fmt.Println(c)
+	fmt.Println(d)
+	// BUT this changes a!
+	fmt.Println(a)
 }
