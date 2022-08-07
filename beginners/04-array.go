@@ -16,6 +16,7 @@ func array() {
 	fmt.Printf("Grades: %v\n", grades)
 
 	var students [3]string
+	// zero-based index
 	students[0] = "Lisa"
 	fmt.Printf("Students: %v\n", students)
 	fmt.Printf("Number of students: %v\n", len(students))
@@ -47,6 +48,7 @@ func slice1() {
 	fmt.Println(a)
 	fmt.Println(b)
 	fmt.Printf("Length: %v\n", len(a))
+	// length of an underlying array
 	fmt.Printf("Capacity: %v\n", cap(a))
 }
 
@@ -67,7 +69,7 @@ func slice2() {
 }
 
 func slice3() {
-	// more efficient if slice size can grow
+	// more efficient if slice may grow pass initial underlying array
 	a := make([]int, 3, 100)
 	fmt.Println(a)
 	fmt.Printf("Length: %v\n", len(a))
