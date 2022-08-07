@@ -11,6 +11,7 @@ func main() {
 }
 
 func array() {
+	// array has fixed size
 	grades := [...]int{97, 85, 93}
 	fmt.Printf("Grades: %v\n", grades)
 
